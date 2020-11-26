@@ -17,3 +17,40 @@ connection.connect(function (err) {
         return;
     }
 });
+
+function startingPrompt() {
+    inquirer
+        .prompt([
+            {
+                name: 'choice',
+                message: 'What would you like to do?',
+                type: 'list',
+                choices: [
+                    "Add a new employee, department or role",
+                    "View existing",
+                    "Update existing",
+                    "Exit"
+                ]
+            }
+        ])
+        // Route the user depending on answer
+        .then(function (answer) {
+            switch (answer.action) {
+                case "Add new department, role or employee":
+                    addNew();
+                    break;
+
+                case "View existing departments, roles or employees":
+                    viewAll();
+                    break;
+
+                case "Update existing departments, roles or employees":
+                    updateExisting();
+                    break;
+
+                case "Exit":
+                    endApp();
+                    break;
+            };
+        });
+};
