@@ -18,6 +18,10 @@ CREATE TABLE role (
   FOREIGN KEY (department_id) REFERENCES department(id)
 );
 
+INSERT INTO department(name) VALUES ('Engineering');
+INSERT INTO department(name) VALUES ('Management');
+INSERT INTO department(name) VALUES ('Wage Slavery');
+
 CREATE TABLE employee (
   id INT AUTO_INCREMENT NOT NULL,
   first_name VARCHAR(30) NOT NULL,
